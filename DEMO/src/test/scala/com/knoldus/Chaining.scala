@@ -7,12 +7,12 @@ import scala.concurrent.duration.DurationInt
 
 class Chaining extends  Simulation{
 
-  val httpProtocol: HttpProtocolBuilder = http.baseUrl("https://reqres.in/api/users?page=2")
+  val httpProtocol: HttpProtocolBuilder = http.baseUrl("https://reqres.in/api/")
 
   val GetFirstUser = group("1st User")
   {
     exec(http("GET 1 User Only Request")
-      .get("create")
+      .get("users/2")
       .check(status.is(200)))
       .pause(1)
   }
@@ -25,7 +25,7 @@ class Chaining extends  Simulation{
         .get("users/2").check(status.is(200)))
       .pause(2)
       .exec(http("request_3")
-        .get("users/23").check(status.is(200)))
+        .get("users/23").check(status.is(404)))
       .pause(3)
       .exec(http("request_4")
         .get("unknown"))
@@ -61,10 +61,10 @@ class Chaining extends  Simulation{
  //Injection simulation
   val scn: ScenarioBuilder = scenario("Load_Test_Scenario").exec(exec(firstSimulation).during(60 seconds)
   {
-    pace(10)
+    pace(10) // If you want to control how frequently an action is executed, to target iterations per hour type volumes. Gatling support a dedicated type of pause: pace, which adjusts its wait time depending on how long the chained action took
     exec(secondSimulation)
   })
 
-  setUp(scn.inject(atOnceUsers(1))).protocols(httpProtocol)
+  setUp(scn.inject(atOnceUsers(50))).protocols(httpProtocol)
 }
 
