@@ -1,0 +1,10 @@
+{
+  "simulation": "com.knoldus.MultipleScenarios",
+  "simulationId": "multiplescenarios",
+  "start": 1627379832131,
+  "description": "",
+  "scenarios": ["at once users", "ramp users", "constant users per second", "ramp users per second"],
+  "assertions": [
+
+  ]
+}
