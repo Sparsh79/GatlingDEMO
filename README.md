@@ -5,7 +5,10 @@ On the other hand, if we want a simulation with multiple injection profiles,  we
 which showcases the chaining of multiple scenarios.
 
 
-To run all the simulation together, we can simply do that by executing the following commnad
+To run all the simulation together, we can simply do that by:-
+
+1. move to the directory ../GatlingDEMO/DEMO and execute the following commnad.
+ 
  ```
  sbt gatling:test
  ```
