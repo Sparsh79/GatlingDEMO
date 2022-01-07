@@ -14,4 +14,4 @@ outputs:
 run:
   path: /bin/bash
   args:
-    - gatling/test-script.sh
+    - gatling/run.sh
