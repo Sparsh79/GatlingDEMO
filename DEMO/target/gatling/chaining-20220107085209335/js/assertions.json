@@ -1,0 +1,10 @@
+{
+  "simulation": "com.knoldus.Chaining",
+  "simulationId": "chaining",
+  "start": 1641545529335,
+  "description": "",
+  "scenarios": ["Load_Test_Scenario"],
+  "assertions": [
+
+  ]
+}

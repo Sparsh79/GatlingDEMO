@@ -1,0 +1,33 @@
+resources:
+  - icon: github
+    name: gatling
+    source:
+      uri: https://github.com/Sparsh79/GatlingDEMO.git
+      branch: master
+    type: git
+
+    jobs:
+      - name: test
+        plan:
+          - get: gatling
+            trigger: true
+          - config:
+              caches:
+                - path: $HOME/.m2/repository
+              container_limits: { }
+              image_resource:
+                name: ""
+                source:
+                  repository: sbt
+                  tag: jdk8-slim
+                type: registry-image
+              inputs:
+                - name: gatling
+              platform: linux
+              run:
+                args:
+                  - gatling/DEMO/run.sh
+                path: /bin/sh
+                user: root
+            task: run-tests
+        public: true

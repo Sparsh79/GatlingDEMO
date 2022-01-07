@@ -1,0 +1,10 @@
+{
+  "simulation": "com.knoldus.IndividualAPI",
+  "simulationId": "individualapi",
+  "start": 1641545788688,
+  "description": "",
+  "scenarios": ["Sample api test"],
+  "assertions": [
+
+  ]
+}
