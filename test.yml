@@ -12,6 +12,6 @@ outputs:
   - name: sbt-output
 
 run:
-  path: /bin/bash
+  path: /bin/sh
   args:
     - gatling/run.sh
